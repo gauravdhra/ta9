@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+* {
+	margin: 0;
+	padding: 0;
+	background-color: #000000;
+	color: #fff;
+}
+
+.signform {
+	text-transform: capitalize;
+	padding: 10%;
+}
+
+.second {
+	text-transform: capitalize;
+	padding: 7%;
+	color: white !important;
+}
+
+.browser-default {
+	color: black;
+}
+
+.summery {
+	text-transform: capitalize;
+	padding: 3%;
+}
+
+li {
+	list-style: none;
+}
