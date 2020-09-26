@@ -1,0 +1,148 @@
+/* .bg-purple{
+    background-color: #7375f8;
+   } */
+  
+   .button-close {
+    background: #4d5456;
+    border-radius: 98px;
+    height: 42px;
+    padding-left: 15px;
+    color: #fff;
+    width: 136px;
+
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 7px;
+    margin-right: 25px;
+
+   }
+  
+   .button-next {
+    background: #6b52f8;
+    border-radius: 98px;
+    height: 42px;
+    padding-left: 15px;
+    color: #fff;
+    width: 136px;
+
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 7px;
+    margin-left: 25px;
+
+   }
+   .button-next :hover {
+    box-shadow: none!important
+  }
+  
+   .close-nested-button {
+    font-size: 18px;
+    border-radius: 50%;
+    margin: -6px -8px -11px 12px;
+    background-color: #989898;
+    padding: 3px 7px;
+    
+   }
+   
+   .next-button {
+    font-size: 18px;
+    border-radius: 50%;
+    margin: -6px -8px -11px 12px;
+    background-color: #a696f8;
+    padding: 3px 7px;
+   }
+   button.mat-focus-indicator.location.btn.mat-fab.mat-button-base.mat-accent:hover {
+    background: #a696f8;
+    box-shadow: 3px 5px #0a0a0a;
+  }
+  button.mat-focus-indicator.location.btn.mat-fab.mat-button-base.mat-accent .ownPick:hover {
+    background: #a696f8;
+    /* box-shadow: 3px 5px #0a0a0a; */
+  }
+   .location{
+    display: flex;
+    color:white;
+    width: 90px;
+    background-color: #7375f8;
+    justify-content: center;
+    padding: 0px 0px;
+    border-radius: 49px;
+    height: 28px;
+    align-items: center;
+   }
+
+   ::ng-deep .mat-dialog-container{
+    box-shadow: none;
+    background: transparent;
+    }
+   ::ng-deep mat-dialog-content{
+    width: 100%!important;
+    height: 100%!important;
+    overflow: hidden!important;
+    position: relative!important;
+    }
+   ::ng-deep .mat-dialog-actions{
+    justify-content: center!important;
+    }
+
+   ::ng-deep agm-map{
+    width: 700px;
+    height: 700px;
+    box-shadow: none;
+    background: transparent;
+}     
+    
+    .mapShow{
+    width: 600px;
+    height: 447px;
+    box-shadow: none;
+    background: transparent;
+    }
+    
+    .map {
+      width: 100%;
+      height: 100%;
+      }
+
+      /* popup css */
+      .ol-popup {
+        position: absolute;
+        background-color: white;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+        padding: 15px;
+        border-radius: 10px;
+        border: 1px solid #cccccc;
+        bottom: 12px;
+        left: -50px;
+        min-width: 280px;
+      }
+      .ol-popup:after, .ol-popup:before {
+        top: 100%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+      }
+      .ol-popup:after {
+        border-top-color: white;
+        border-width: 10px;
+        left: 48px;
+        margin-left: -10px;
+      }
+      .ol-popup:before {
+        border-top-color: #cccccc;
+        border-width: 11px;
+        left: 48px;
+        margin-left: -11px;
+      }
+      .ol-popup-closer {
+        text-decoration: none;
+        position: absolute;
+        top: 2px;
+        right: 8px;
+      }
+      .ol-popup-closer:after {
+        content: "✖";
+      }

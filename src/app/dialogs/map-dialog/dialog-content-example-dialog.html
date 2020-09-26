@@ -1,0 +1,68 @@
+<!-- <mat-dialog-content> -->
+
+<!-- <div id="map" class="map"></div> -->
+
+<!-- <agm-map 
+      [latitude]="lat"
+      [longitude]="lng"
+      [zoom]="zoom"
+      [disableDefaultUI]="false"
+      [zoomControl]="false"
+      (mapClick)="mapClicked($event)">
+    
+      <agm-marker 
+          *ngFor="let m of markers; let i = index"
+          (markerClick)="clickedMarker(m.label, i)"
+          [latitude]="m.lat"
+          [longitude]="m.lng"
+          [label]="m.label"
+          [markerDraggable]="m.draggable"
+          (dragEnd)="markerDragEnd(m, $event)">
+          
+        <agm-info-window>
+          <strong>InfoWindow content</strong>
+        </agm-info-window>
+        
+      </agm-marker>
+      
+      <agm-circle [latitude]="lat + 0.3" [longitude]="lng" 
+          [radius]="5000"
+          [fillColor]="'red'"
+          [circleDraggable]="true"
+          [editable]="true">
+      </agm-circle>
+    
+    </agm-map> -->
+<!-- </mat-dialog-content> -->
+<!-- <mat-dialog-actions> -->
+<!-- <button class="btn waves-effect waves-light button-close" [mat-dialog-close]="''" name="action" 
+            ><i class="material-icons right close-nested-button">close</i>Close</button>
+    <button class="btn waves-effect waves-light button-next"[mat-dialog-close]="address"  name="action" 
+            ><i class="material-icons right next-button">check</i>Approve</button> -->
+<!-- <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button> -->
+<!-- </mat-dialog-actions> -->
+<!-- <div id="map" class="map"></div> -->
+
+
+<!-- <div class="mapShow">
+  <div id="map" class="map" (click)="getCoord($event)"><div id="popup"></div></div>
+  <div id="popup" class="ol-popup">
+    <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+    <div id="popup-content"></div>
+  </div>
+</div> -->
+
+<div class="mapShow">
+  <div id="map" class="map"></div>
+  <div id="popup" class="ol-popup">
+    <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+    <div id="popup-content">{{placeName}}</div>
+  </div>
+</div>
+
+<mat-dialog-actions><button class="btn waves-effect waves-light button-close" [mat-dialog-close]="undefined" name="action"><i
+      class="material-icons right close-nested-button">close</i>Close</button>
+  <button class="btn waves-effect waves-light button-next" [mat-dialog-close]="location" name="action"
+    (click)="approveLocation()"><i class="material-icons right next-button">check</i>Approve</button>
+</mat-dialog-actions>

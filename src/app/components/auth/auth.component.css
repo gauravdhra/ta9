@@ -1,0 +1,85 @@
+
+.button-background {
+  background: #6b52f8
+}
+
+.input-field input[type=text] {
+	border-radius: 5px;
+  }
+
+  .input-field input[type=password] {
+    border-radius: 5px;
+    }
+
+.input-field input[type=text]:focus + label {
+  color: none;
+}
+
+.input-field input[type=text]:focus {
+  border-bottom: none;
+  box-shadow: none;
+}
+
+.input-field input[type=text].valid {
+  border-bottom: none;
+  box-shadow: none;
+}
+
+.input-field input[type=text].invalid {
+  border-bottom: none;
+  box-shadow: none;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+  color: #6b52f8;
+}
+.input-field input[type=password]:focus + label {
+  color: none;
+}
+
+.input-field input[type=password]:focus {
+  border-bottom: none;
+  box-shadow: none;
+}
+
+.input-field input[type=password].valid {
+  border-bottom: none;
+  box-shadow: none;
+}
+
+.input-field input[type=password].invalid {
+  border-bottom: none;
+  box-shadow: none;
+}
+
+.input-field input[type=text] {     
+    background-color: white;
+    color: black;
+    padding-left: 15px;
+
+  }
+.input-field input[type=password] {     
+    background-color: white;
+    color: black;
+    padding-left: 15px;
+
+  }
+
+  .input-field input[type=password] {     
+    background-color: white;
+    color: black
+  }
+
+  .margin-rows {
+    margin-bottom: 0px;
+    justify-content: center;
+
+  }
+  
+  .my-wrapper {
+    height: 100%;
+  }
+
+  .submitBuuton{
+    justify-content: center;
+  }

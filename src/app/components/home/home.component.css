@@ -1,0 +1,595 @@
+ .signform {
+  text-transform: capitalize;
+  padding: 8% 7% 0% 6%;
+  height: 100vh;
+ }
+
+ section.ownSection .container {
+   width: 100%;
+ }
+
+ .ownSection {
+   height: 100vh !important;
+ }
+
+ .arrowsvg {
+   cursor: pointer;
+   width: 120px;
+ }
+ .ownLocation{
+  margin-right: 8px;
+  width: 10px;
+ }
+ .iconWrite{
+  background: #7375f8;
+  width: 225px;
+  border-radius: 50%;
+  height: 225px;
+  padding: 38px;
+  display: inline-block;
+ }
+ .headingFinal
+ {
+  text-align: left;
+  font-size: 14px;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  opacity: 1;
+ }
+ .finish li{
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+  padding-right: 30px;
+ }
+ .finish1 li{
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+  padding-right: 10px;
+ }
+ .writeimg{
+  top: -6px;
+  background-color: transparent;
+  position: absolute;
+  width: 345px;
+  height: 226px;
+  left: -55px;
+  bottom: 0px;
+ }
+ .startTime
+ {
+  font-weight: 500;
+  background-color: #fff;
+  color: #000;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-right:5px;
+ }
+ 
+ .endTime
+ {
+  font-weight: 500;
+  background-color: #fff;
+  color: #000;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 14px;
+ }
+ .ownTable td th{
+  padding: 0px 5px!important;
+ }
+ input.ownInput {
+  width: 44px!important;
+  border-bottom: 0!important;
+  color: #000;
+  
+}
+ .location{
+  display: flex;
+  color:white;
+  width: 90px;
+  background-color: #7375f8;
+  justify-content: center;
+  padding: 0px 0px;
+  border-radius: 49px;
+  height: 28px;
+  align-items: center;
+ }
+ .bg-purple{
+  background-color: #7375f8;
+ }
+ .cursorPointer
+ {
+   cursor:pointer;
+ }
+.ownDeleteBtn
+{
+ 
+  outline: none;
+  color: white;
+
+
+}
+.ownAddImg
+{
+  
+  background-color: #7375f8;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  outline: none;
+  color: white;
+
+
+}
+.ownTextArea
+{
+
+  background-color: #fff;
+  color: gray;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  height: 77px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-style: italic;
+
+}
+.ownFont12{
+  font-size: 12px;
+}
+.own-place
+{
+  font-size: 16px;
+  margin-top: 7px;
+}
+.primary-gray.mat-icon.mat-primary:hover {
+  color: red;
+}
+.btn.button-next:disabled {
+  background-color: #4c4d86!important;
+  color: #736f6f!important;
+}
+.deleteicon
+{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  padding-left: 0px;
+}
+.ownDeleteBtn{
+  background: transparent ;
+  box-shadow: none;
+}
+.ownDelete {
+  width: 100%;
+  max-width: 24px;
+  margin-right: 18px;
+  position: relative;
+  left: -28px;
+  top: 0px;
+}
+.form-group {
+  margin-bottom: 0;
+}
+ .ownHeading {
+   text-align: left;
+   letter-spacing: 0px;
+   color: #FFFFFF;
+   opacity: 1;
+   font-size: 14px;
+   font-weight: 600;
+   margin-bottom: 4px!important;
+   padding-left: 0 !important;
+ }
+
+ select {
+  background-color: #fff;
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #f2f2f2;
+  border-radius: 5px;
+  height: 38px;
+  text-align: left;
+  font-size: 14px;
+  letter-spacing: 0px;
+  color: #000000;
+ }
+ option:first-child {
+  margin-top: -2px;
+  padding-top: 0px!important;
+  position: relative;
+}
+
+select {
+  outline: none!important;
+}
+
+select option {
+  background-color: white;
+  color: black;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 20px;
+  z-index: 10;
+  margin-bottom: 15px;
+}
+.header .indicator {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 5px;
+  border-radius: 70px;
+  margin-left: 15px;
+  background-color: #6e7071;
+}
+.header .indicator:hover {
+    background-color: #7375f8;
+}
+div.header span.active {
+  background-color: #7375f8;
+}
+.header .indicator:first-of-type {
+  margin-left: 0;
+}
+
+
+ .form-control {
+   display: block !important;
+   width: 100% !important;
+   font-size: 1rem !important;
+   font-weight: 400 !important;
+   line-height: 1.5 !important;
+   padding: 0px !important;
+   padding-left: 7px !important;
+   color: #495057 !important;
+   background-color: #fff !important;
+   background-clip: padding-box !important;
+   border: 1px solid #ced4da !important;
+   border-radius: 5px !important;
+   box-sizing: border-box !important;
+   height: 38px !important;
+   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out !important;
+ }
+
+ .contentHeading {
+  text-align: left;
+  font-size: 28px;
+  letter-spacing: 0px;
+  color: #d4d2d2;
+ }
+
+ .contentHeadingParah {
+   text-align: left;
+   font-size: 16px;
+   letter-spacing: 0px;
+   color: #d4d2d2;
+ }
+
+ /* .second {
+	text-transform: capitalize;
+	padding: 7%;
+	color: white !important;
+}
+
+.browser-default {
+	color: black;
+}
+
+.summery {
+	text-transform: capitalize;
+	padding: 3%;
+}
+
+li {
+	list-style: none;
+} */
+
+ /* ======================= */
+
+ .input-field input[type=text]:focus+label {
+   color: none;
+ }
+
+ .input-field input[type=text]:focus {
+   border-bottom: none;
+   box-shadow: none;
+ }
+
+ .input-field input[type=text].valid {
+   border-bottom: none;
+   box-shadow: none;
+ }
+
+ .input-field input[type=text].invalid {
+   border-bottom: none;
+   box-shadow: none;
+ }
+
+ /* icon prefix focus color */
+ .input-field input[type=text] {
+   border-radius: 2px;
+ }
+
+ .input-field input[type=password]:focus+label {
+   color: none;
+ }
+
+ .input-field input[type=password]:focus {
+   border-bottom: none;
+   box-shadow: none;
+ }
+
+ .input-field input[type=password].valid {
+   border-bottom: none;
+   box-shadow: none;
+ }
+
+ .input-field input[type=password].invalid {
+   border-bottom: none;
+   box-shadow: none;
+ }
+
+ .input-field input[type=text] {
+   background-color: white;
+   color: black
+ }
+
+ .input-field input[type=password] {
+   background-color: white;
+   color: black
+ }
+
+ .label-class {
+   margin-top: -4px;
+ }
+
+
+
+ .required:after {
+   content: " *";
+   color: red;
+ }
+
+ .shift-label {
+   margin-top: -35px;
+   font-size: 12px;
+ }
+
+ select {
+   color: black;
+ }
+
+ select:disabled {
+   color: #dddddd;
+ }
+
+ .set-margin {
+   margin-bottom: -16px;
+ }
+
+ .button-next {
+  background: #6b52f8;
+  border-radius: 98px;
+  height: 42px;
+  padding-left: 15px;
+  width: 120px;
+
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+ }
+ .backButton circle:hover {
+  box-shadow: 3px 5px #0a0a0a;
+  background-color: #6b52f8;
+}
+ button.btn.waves-effect.waves-light.button-next:hover {
+  box-shadow: 3px 5px #0a0a0a;
+  background: #a696f8;
+}
+ .next-button {
+  font-size: 18px;
+  border-radius: 50%;
+  margin: -6px -8px -11px 12px;
+  background-color: #a696f8;
+  padding: 3px 7px;
+ }
+.own-signature-field{
+  width: 100%!important;
+  padding: 0px!important;
+  margin: 0px;
+}
+.own-signature-field input, .own-signature-field select, .own-signature-field textarea{
+  min-width: 290px!important;
+  width:100%;
+}
+.disabled-dark{
+  color:#cac9c9!important;
+}
+
+/* td {
+  padding: .75rem;
+  vertical-align: middle;
+  border-bottom: 1px solid #636363;
+} */
+.scheduleTable thead tr {
+  border-bottom: none!important;
+}
+.scheduleTable tbody tr {
+  border-bottom: 2px solid #565656;
+}
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: 0;
+}
+.table td, .table th {
+  color: white;
+  padding: 5px 0 0px 12px;
+  vertical-align: middle;
+  border-top: 0;
+}
+  .primary-gray.mat-icon.mat-primary {
+    color: gray;
+}
+
+button.mat-focus-indicator.location.btn.mat-fab.mat-button-base.mat-accent:hover {
+  background: #a696f8;
+  box-shadow: 3px 5px #0a0a0a;
+}
+
+button.mat-focus-indicator.location.btn.mat-fab.mat-button-base.mat-accent .ownPick:hover {
+  background: #a696f8;
+  /* box-shadow: 3px 5px #0a0a0a; */
+}
+
+.disabledInput{
+  pointer-events: none;
+ }
+.locationeditField{
+display: flex;
+}
+.ownPoisitionRelative
+{
+  position: relative;
+}
+button.mat-focus-indicator.location.btn.mat-fab.mat-button-base.mat-accent:hover {
+  background: #a696f8;
+}
+button.mat-focus-indicator.ownAddImg.cursorPointer.mat-fab.mat-button-base.mat-primary:hover {
+  background: #a696f8;
+}
+.ownConditon{
+  position: absolute!important;
+  border: transparent!important;
+  background: transparent!important;
+  bottom: 7px!important;
+  width: 92%!important;
+}
+@media(max-width:776px){
+  .writeimg {
+    top: -6px;
+    background-color: transparent;
+    position: absolute;
+    width: 345px;
+    height: 226px;
+    left: 6%;
+    bottom: 0px;
+  }
+  .row.summery .col-md-3 {
+    text-align: center;
+}
+.finish1 li .col-md-3 {
+  text-align: left!important;
+}
+.finish1 li .col-md-9
+{
+  text-align: right;
+  padding-right: 15px!important;
+  padding-bottom: 10px;
+}
+.contentHeading {
+  text-align: left;
+  font-size: 24px;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+}
+.contentHeadingParah {
+  text-align: left;
+  font-size: 14px;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+}
+.signform .row .right-align span button {
+  margin-top: 10px!important;
+}
+  .mergeSelect {
+  background-color: #fff; 
+    width: 100%;
+    height: 25px;
+    padding: 1px;
+    border: 1px solid #f2f2f2;
+    border-radius: 0 0 5px 5px;
+    height: 25px;
+    text-align: left;
+    font-size: 14px;
+    letter-spacing: 0px;
+    color: #000000;
+
+}
+::ng-deep .groupInputSelect .mergetextarea {
+  border-radius: 5px 5px 0px 0px;
+  margin-bottom: -10px;
+  border: none;
+  outline: none;
+  margin-top: 0px;
+  height: 33px;
+  background-color: #fff;
+  color: black;
+  font-size: 14px;
+  padding: 5px;
+  /* width: 210px; */
+}
+select {
+  background-color: #fff;
+  width: 120px;
+  padding: 5px;
+  border: 1px solid #f2f2f2;
+  border-radius: 5px;
+  height: 38px;
+  text-align: left;
+  font-size: 14px;
+  letter-spacing: 0px;
+  color: #000000;
+  font-weight: 600;
+}
+.locationTextArea {
+  color: black;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  height: 75px;
+  border-radius: 5px;
+  font-size: 14px;
+  padding: 5px;
+  width: 210px;
+}
+.ownTextArea {
+  background-color: #fff;
+  color: black;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  height: 75px;
+  border-radius: 5px;
+  font-size: 14px;
+  padding: 5px;
+  width: 210px;
+}
+
+}
+.otherInput{
+  background-color: white;
+  border-bottom: none;
+  margin-bottom: -6px;
+  border-radius: 4px 4px 0 0;
+  height: 28px;
+}
+.otherInput:focus{
+  border-bottom: none!important;
+  box-shadow: none!important;
+}
+
+::ng-deep .timepicker__header {
+  position: relative!important;
+  height:57px
+}
+
+
+

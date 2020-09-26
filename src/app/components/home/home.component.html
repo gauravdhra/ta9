@@ -1,70 +1,423 @@
-<section>
-    <div class="container signform">
+<div [ngSwitch]="step">
+  <section class="ownSection" *ngSwitchCase="1">
+    <div class="signform">
 
-
-        <div class="row">
-            <div style="margin-left: 10px; color: #fff; ">
-                <h4>Hello, Joe</h4>
-                <p>Plan a shift by filling in the following details:</p>
-                <p style="font-size:13px;">shift sector</p>
-
-            </div>
-            <div class="input-field col s12 m6">
-
-                <select class="browser-default">
-                    <option value="" disabled selected>Choose divison</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
-                </select>
-            </div>
-            <div class="input-field col s12 m6">
-
-                <select class="browser-default">
-                    <option value="" disabled selected>Choose NPC</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
-                </select>
-
-            </div>
-            <div class="input-field col s12 m4">
-                <label>Team Name</label>
-                <input type="text" name="Name" placeholder="Team Name" autocomplete="on" required>
-
-            </div>
-            <div class="input-field col s12 m4">
-                <label>Driver Name</label>
-                <input type="text" name="Name" placeholder="Driver Name" autocomplete="on" required>
-            </div>
-            <div class="input-field col s12 m4">
-                <label>Petrolman</label>
-                <input type="text" name="Name" placeholder="Petrolman" autocomplete="on" required>
-            </div>
-            <div class="input-field col s12 m6">
-                <label>sector</label>
-                <input type="text" name="Name" placeholder="sector" required>
-            </div>
-            <div class="input-field col s12 m6">
-                <label>call sign</label>
-                <input type="text" name="Name" placeholder="call sign" required>
-            </div>
-
-            <label>shift time</label>
-            <div class="shift">
-                <form action="#">
-                    <p>
-                        <label>
-                            <input name="group1" type="radio" class="with-gap" checked />
-                            <span>Day Shift</span>
-                        </label>
-                        <label>
-                            <input name="group1" type="radio" class="with-gap" />
-                            <span>Night Shift</span>
-                        </label>
-                    </p>
-                    </form>
-            </div>
+      <div class="row">
+        <div class="col s12 m6">
+          <div style="margin-left: 20px; color: #fff; ">
+            <h2 class="contentHeading">Hello, Joe</h2>
+            <p class="contentHeadingParah">Plan a shift by filling in the following details:</p>
+          </div>
         </div>
+        <div class="col s12 m6 right-align">
+
+          <button class="btn waves-effect waves-light button-next" type="submit" name="action" (click)="step=2"
+            [disabled]="!shiftInfoForm.valid"><i class="material-icons right next-button">forward</i>Next</button>
+        </div>
+      </div>
+      <div class="header">
+        <span class="indicator active"></span>
+        <span class="indicator" (click)="shiftInfoForm.valid ? step=2: return;"></span>
+        <span class="indicator" (click)="signatureForm.valid ? step=3: return;"></span>
+      </div>
+      <form [formGroup]="shiftInfoForm">
+        <div class="pl-0">
+          <div class="col-md-9">
+            <div class="row">
+              <div class="form-group col-md-4 pr-1">
+                <label class="label-class required ownHeading">Shift’s Sector</label>
+                <select formControlName="division" class="browser-default">
+                  <option value="" selected disabled>Choose divison</option>
+                  <option value="division1">Division 1</option>
+                  <option value="division2">Division 2</option>
+                  <option value="division3">Division 3</option>
+                </select>
+              </div>
+              <div class="form-group col-md-4 pr-1">
+                <label style="visibility: hidden;" class="label-class required ownHeading"></label>
+                <select formControlName="npc" class="browser-default">
+                  <option value="" disabled selected>Choose NPC</option>
+                  <option value="npc1">NPC 1</option>
+                  <option value="npc2">NPC 2</option>
+                  <option value="npc3">NPC 3</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-4 pr-1">
+                <label class="label-class required ownHeading">Team Name</label>
+                <input type="text" formControlName="teamName" name="Name" class="form-control" placeholder="Team Name"
+                  autocomplete="on" required>
+
+              </div>
+              <div class="form-group col-md-4 pr-1">
+                <label class="label-class required ownHeading">Driver Name</label>
+                <input type="text" formControlName="driverName" name="Name" class="form-control"
+                  placeholder="Driver Name" autocomplete="on" required>
+              </div>
+              <div class="form-group col-md-4 pr-1">
+                <label class="label-class required ownHeading">Patrolman</label>
+                <input type="text" formControlName="patrolMan" name="Name" class="form-control" placeholder="Petrolman"
+                  autocomplete="on" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-4 pr-1">
+                <label class="label-class required ownHeading">Sector</label>
+                <input type="text" formControlName="sector" name="Name" class="form-control" placeholder="sector"
+                  required>
+              </div>
+              <div class="form-group col-md-4 pr-1">
+                <label class="label-class required ownHeading">Call sign</label>
+                <input type="text" formControlName="callSign" name="Name" class="form-control" placeholder="call sign"
+                  required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-4 pr-1">
+
+                <label class="label-class required ownHeading col s12 m12 set-margin">Shift time</label>
+                <div class="form-group">
+                  <label>
+                    <input name="shiftTime" formControlName="shiftTime" type="radio" class="form-control" value="day"
+                      class="with-gap" checked />
+                    <span>Day Shift</span>
+                  </label>
+                  <label class="pl-3">
+                    <input name="shiftTime" formControlName="shiftTime" type="radio" class="form-control" value="night"
+                      class="with-gap" />
+                    <span>Night Shift</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+
     </div>
-</section>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- ===========================================Second slide================================ -->
+
+  <section class="ownSection" *ngSwitchCase="2">
+    <div class="signform">
+
+      <div class="row">
+        <div class="col s12 m6">
+          <div style="margin-left: 10px; color: #fff; ">
+            <h2 class="contentHeading">Hello, Joe</h2>
+            <p class="contentHeadingParah">Plan a shift by filling in the following details:</p>
+          </div>
+        </div>
+
+        <div class="col s12 m6 right-align">
+          <span class="mr-3">
+            <svg (click)="step = 1" class="cursorPointer backButton" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+              viewBox="0 0 44 44">
+              <defs>
+                <style>
+                  .a {
+                    fill: #939090;
+                  }
+
+                  .b {
+                    fill: none;
+                    stroke: #fff;
+                    stroke-linecap: round;
+                    stroke-width: 4px;
+                  }
+                </style>
+              </defs>
+              <circle class="a" cx="22" cy="22" r="22" />
+              <g transform="translate(14.677 16.893)">
+                <line class="b" x1="9.358" transform="translate(4.718 4.69)" />
+                <path class="b" d="M4100.318,247.98l-5.818,4.687,5.818,4.9" transform="translate(-4094.5 -247.98)" />
+              </g>
+            </svg>
+          </span>
+          <span> 
+            <!-- <i class="material-icons right next-button">leftarrow</i> -->
+            <button class="btn waves-effect waves-light button-next" type="submit" name="action"
+              [disabled]="!shitScheduleForm.valid" (click)="step=3"><i
+                class="material-icons right next-button">forward</i>Next</button>
+            <!-- <img src="../../../assets/img/next.svg" (click)="nextButton('2')" class="arrowsvg"> -->
+          </span>
+        </div>
+      </div>
+      <div class="header">
+        <span class="indicator" (click)="step= 1"></span>
+        <span class="indicator active"></span>
+        <span class="indicator" (click)="shitScheduleForm.valid ? step=3: return;" disabled></span>
+      </div>
+      <div class="table-responsive scheduleTable">
+        <form [formGroup]="shitScheduleForm" novalidate>
+          <table formArrayName="schedules" class="table">
+            <thead>
+              <tr>
+                <th class=""></th>
+                <th class="">SR.No.</th>
+                <th class="pl-5">Time</th>
+                <th class="pl-4 required">Location</th>
+                <th class="required">Specific Purpose</th>
+                <th>Reason For Deviation</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr [formGroupName]="i"
+                *ngFor="let schedule of shitScheduleForm.controls.schedules.controls; let i=index">
+                <td>
+                  <button mat-fab [ngStyle]="{'visibility': i==0 ? 'hidden' : 'visible'}"[disabled]="i ==0" class="ownDeleteBtn"
+                    aria-label="Example icon button with a delete icon" (click)="removeShiftSchedule(i)">
+
+                    <mat-icon *ngIf="i>0" color="primary">delete</mat-icon>
+                  </button>
+                </td>
+                <td>
+                  <span class="">
+                    <span>
+                      {{i+1}}
+                    </span>
+                  </span>
+                </td>
+                <td>
+                  <span class="startTime">
+                    <input class="ownInput" formControlName="startTime" name="startTime" aria-label="Custom theme"
+                      [format]="24" [ngxTimepicker]="beginTime" readonly>
+                    <ngx-material-timepicker [minutesGap]="5" [min]="8" [max]=20 #beginTime [theme]="darkTheme">
+                    </ngx-material-timepicker>
+                  </span>
+                  <span class="endTime">
+                    <input class="ownInput" [format]="24" formControlName="endTime" name="endTime" [max]="startTime"
+                      aria-label="Custom theme" [ngxTimepicker]="finsishTime" readonly>
+                    <ngx-material-timepicker [minutesGap]="5" [min]="8" [max]=20 #finsishTime [theme]="darkTheme">
+                    </ngx-material-timepicker>
+                  </span>
+                </td>
+                <td >
+                  <!-- <button mat-fab aria-label="Example icon button with a delete icon" class="location btn">
+                    <mat-icon color="">place</mat-icon>
+                    <span class="bg-purple">Pick</span>
+                  </button> -->
+                  <!-- [ngClass]="{'height': (purpose.selectedIndex === purpose.options.length - 1) ? '30px' : '38px'}"  -->
+                  <!-- <mat-form-field class="example-full-width" *ngIf="schedule.controls.location.value!=''">
+                    <textarea  (click)="openEditDialog(i,schedule.controls.location.value)" formControlName="location" matInput ></textarea>
+                    <mat-icon  style="cursor: pointer;" (click)="editLocation[i] = true" matSuffix>mode_edit</mat-icon>
+                  </mat-form-field> -->
+
+
+                  <div style="display:flex;" *ngIf="schedule.controls.location.value!=''" class="locationeditField">
+                    <!-- <mat-label style="cursor: pointer;"(click)="openMapDialog(i)">{{schedule.controls.location.value}}</mat-label> -->
+                    <textarea formControlName="location" (click)="openMapDialog(i)" type="text"readonly  matInput></textarea>
+                    <!-- <div style="position:absolute; left:0; right:0; top:0; bottom:0;"></div> -->
+
+                    <button mat-icon-button matSuffix (click)="openEditDialog(i,schedule.controls.location.value)" >
+                    <mat-icon class="locationediticon">edit</mat-icon>
+                    </button>
+                  </div>
+                  
+                  <!-- <textarea *ngIf="editLocation[i] != true"formControlName="location" *ngIf="schedule.controls.location.value!=''" class="browser-default mergetextarea locationTextArea"></textarea> -->
+                  
+                  <!-- <mat-icon (click)="editLocation[i] = false" style="cursor: pointer;"*ngIf="schedule.controls.location.value !=''">edit</mat-icon> -->
+                  
+                  
+                  <button   mat-fab  *ngIf="schedule.controls.location.value==''" (click)="openMapDialog(i)"aria-label="Example icon button with a delete icon" class="location btn">
+                    <mat-icon color="">place</mat-icon>
+                    <span class="bg-purple ownPick">Pick</span>
+                  </button>
+                  
+                  <!-- <app-map-dialog *ngIf="schedule.controls.location.value==''" (location)="addAddress($event,i)"></app-map-dialog> -->
+                </td>
+                <td>
+                  <div class="input-field col s12 m6 pl-0 groupInputSelect ownPoisitionRelative">
+                    <textarea  formControlName="purpose" *ngIf="option[i]" placeholder="Type here.." class="browser-default mergetextarea ownTextArea"></textarea>
+                    <select formControlName="purpose" (change)='onOptionSelected(i,purpose.selectedIndex)'  [ngClass]="{'ownConditon':option[i]}"
+                    [ngStyle]="{'height': option[i] ? '30px' : '38px'}" 
+                    [class.text-dimmed]="true" #purpose class="browser-default ">
+                      <option value=""  disabled selected>Choose Purpose</option>
+                      <option value="purpose1">Purpose 1</option>
+                      <option value="purpose2">Purpose 2</option>
+                      <option value="purpose3">Purpose 3</option>
+                      <option value="purpose4">Purpose 4</option>
+                      <option value="">Other</option>
+                    </select>
+                  </div>
+                </td>
+                <td>
+                  <div class="input-field col s12 m-0 pl-0">
+                    <textarea formControlName="reasonDeviation" placeholder="Type here..."
+                      class="ownTextArea"></textarea>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+        <!-- </div> -->
+        <span>
+          <button mat-fab color="primary" class="ownAddImg cursorPointer"
+            aria-label="Example icon button with a delete icon" (click)="addShiftSchedule()">
+            <mat-icon>add</mat-icon>
+          </button>
+          <!-- <a href="#!" class="waves-effect waves-circle  secondary-content">
+            <i class="material-icons ownAddImg cursorPointer" (click)="addShiftSchedule()">add</i>
+          </a> -->
+        </span>
+      </div>
+    </div>
+
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- =================================Third Slide============================ -->
+
+  <section *ngSwitchCase="3">
+    <div class="signform">
+
+      <div class="row">
+        <div class="col s12 m6">
+          <div style="margin-left: 10px; color: #fff; ">
+            <h2 class="contentHeading">Hello, Joe</h2>
+            <p class="contentHeadingParah">Plan a shift by filling in the following details:</p>
+          </div>
+        </div>
+
+        <div class="col s12 m6 right-align">
+          <span class="mr-3">
+
+            <svg (click)="step = 2" class="cursorPointer" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+              viewBox="0 0 44 44">
+              <defs>
+                <style>
+                  .a {
+                    fill: #939090;
+                  }
+
+                  .b {
+                    fill: none;
+                    stroke: #fff;
+                    stroke-linecap: round;
+                    stroke-width: 4px;
+                  }
+                </style>
+              </defs>
+              <circle class="a" cx="22" cy="22" r="22" />
+              <g transform="translate(14.677 16.893)">
+                <line class="b" x1="9.358" transform="translate(4.718 4.69)" />
+                <path class="b" d="M4100.318,247.98l-5.818,4.687,5.818,4.9" transform="translate(-4094.5 -247.98)" />
+              </g>
+            </svg>
+          </span>
+          <span>
+            <button class="btn waves-effect waves-light button-next" type="submit" name="action" (click)="submitShift()"><i
+                class="material-icons right next-button">forward</i>Finish</button>
+          </span>
+        </div>
+      </div>
+      <div class="header">
+        <span class="indicator" (click)="step= 1"></span>
+        <span class="indicator" (click)="step=2"></span>
+        <span class="indicator active"></span>
+      </div>
+
+      <div class="second">
+
+        <div class="row summery">
+
+          <div class="col-md-3">
+            <div class="iconWrite">
+              <img class="writeimg" src="../../../assets/img/group.svg" width="200">
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="finish">
+              <h6 class="headingFinal">Shift Summery</h6>
+              <li><label>Divison</label><span>{{shiftInfoForm.controls.division.value}}</span></li>
+              <li><label>NPC</label><span>{{shiftInfoForm.controls.npc.value}}</span></li>
+              <li><label>Team</label><span>{{shiftInfoForm.controls.teamName.value}}</span></li>
+              <li><label>Driver</label><span>{{shiftInfoForm.controls.driverName.value}}</span></li>
+              <li><label>Petrolman</label><span>{{shiftInfoForm.controls.patrolMan.value}}</span></li>
+              <li><label>Call Sign</label><span>{{shiftInfoForm.controls.callSign.value}}</span></li>
+              <li><label>Sector</label><span>{{shiftInfoForm.controls.sector.value}}</span></li>
+            </div>
+
+          </div>
+          <div class="col-md-4">
+            <div class="finish1">
+              <h6 class="headingFinal">Schedule</h6>
+              <li *ngFor="let schedule of shitScheduleForm.controls.schedules.controls; let i=index"><label class="col-md-3 pl-0">{{schedule.controls.startTime.value}}-{{schedule.controls.endTime.value}}</label><span style="font-style: italic" class="col-md-9 pr-0">{{schedule.controls.location.value}}</span></li>
+            </div>
+
+          </div>
+
+          <div class="col-md-2">
+            <form [formGroup]="signatureForm" novalidate>
+              <div class="col s12 m3 input-field own-signature-field">
+                <h6 class="headingFinal">Other Signature</h6>
+                <!-- <span><img src="sign.png" width="100"></span><br> -->
+
+                <div>
+                  <app-signature-pad></app-signature-pad>
+                  <!-- <textarea _ngcontent-rvo-c46="" formControlName="signature" class="ownTextArea">Type Here</textarea> -->
+                </div>
+
+                <div _ngcontent-vbg-c46="" class="form-group mt-2">
+                  <label _ngcontent-vbg-c46="" class="label-class required ownHeading">Team Name </label>
+                  <input _ngcontent-vbg-c46="" [(ngModel)]="shiftInfoForm.controls.teamName.value" formControlName="teamName" type="text" name="Name"
+                    placeholder="Team Name" autocomplete="on" required="" class="form-control"></div>
+
+                <div class="form-group mt-2">
+                  <label class="headingFinal required">Rank </label>
+                  <select class="browser-default" formControlName="rank">
+                    <option value="" disabled selected>Rank</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                  </select>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,28 @@
+  <mat-dialog-content style='background: #31393c;
+  min-width: 250px;
+  padding-top: 10px;'>
+    <p>Edit the location of selected Schedule.</p>
+    <mat-form-field appearance="fill">
+      <mat-label>Edit the location of selected Schedule</mat-label>
+      <textarea matInput [(ngModel)]="data.location"></textarea>
+    </mat-form-field>
+    <!-- <mat-form-field>
+      <mat-label>Favorite Animal</mat-label>
+      <textarea  type="text"  matInput></textarea>
+
+      <input matInput [(ngModel)]="data.location">
+    </mat-form-field> -->
+  </mat-dialog-content>
+  <div mat-dialog-actions >
+    <button mat-button style='    background-color: #31393c;' (click)="onNoClick()">Cancel</button>
+    <button mat-button style='    background-color: #31393c;' [mat-dialog-close]="data">Ok</button>
+  </div>
+
+<!-- 
+  <div style="display:flex;" *ngIf="schedule.controls.location.value!=''" class="locationeditField">
+    <textarea formControlName="location" (click)="openMapDialog(i)" type="text"readonly  matInput></textarea>
+
+    <button mat-icon-button matSuffix (click)="openEditDialog(i,schedule.controls.location.value)" >
+    <mat-icon class="locationediticon">edit</mat-icon>
+    </button>
+  </div> -->
