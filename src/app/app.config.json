@@ -1,0 +1,13 @@
+{
+  "NPCLookupName": "work_shift_npc",
+  "divisionLookupName": "work_shift_division",
+  "purposeLookupName": "work_shift_purpose",
+  "rankLookupName": "work_shift_rank",
+  "shiftDMID": 176,
+  "divisionDropdown": ["Division 1", "Division 2", "Division 3", "Division 4", "Division 5"],
+  "npcDropdown": ["NPC 1", "NPC 2", "NPC 3", "NPC 4", "NPC 5"],
+  "purposesDropdown": ["Purpose 1", "Purpose 2", "Purpose 3", "Purpose 4", "Purpose 5"],
+  "rankDropdown": ["Rank 1", "Rank 2", "Rank 3"],
+  "singaporeCoordinates": [11558584.587592864, 149314.65873857454],
+  "mapZoom":8
+}

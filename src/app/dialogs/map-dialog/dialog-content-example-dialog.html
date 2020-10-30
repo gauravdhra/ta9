@@ -53,16 +53,20 @@
   </div>
 </div> -->
 
-<div class="mapShow">
-  <div id="map" class="map"></div>
-  <div id="popup" class="ol-popup">
-    <a href="#" id="popup-closer" class="ol-popup-closer"></a>
-    <div id="popup-content">{{placeName}}</div>
+<div class="row">
+  <div class="mapShow">
+    <div id="map" class="map"></div>
+    <div id="popup" class="ol-popup">
+      <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+      <div id="popup-content">{{placeName}}</div>
+    </div>
+    <div id="mark" class="ol-mark">
+    </div>
   </div>
 </div>
 
-<mat-dialog-actions><button class="btn waves-effect waves-light button-close" [mat-dialog-close]="undefined" name="action"><i
-      class="material-icons right close-nested-button">close</i>Close</button>
-  <button class="btn waves-effect waves-light button-next" [mat-dialog-close]="location" name="action"
+<mat-dialog-actions><button class="btn waves-effect waves-light button-close" [mat-dialog-close]="undefined"
+    name="action"><i class="material-icons right close-nested-button">close</i>Close</button>
+  <button class="btn waves-effect waves-light button-next" [mat-dialog-close]="locationDetail" name="action"
     (click)="approveLocation()"><i class="material-icons right next-button">check</i>Approve</button>
 </mat-dialog-actions>

@@ -76,6 +76,7 @@
     background: transparent;
     }
    ::ng-deep mat-dialog-content{
+    margin: 0!important;
     width: 100%!important;
     height: 100%!important;
     overflow: hidden!important;
@@ -93,7 +94,7 @@
 }     
     
     .mapShow{
-    width: 1000px;
+    width: 600px;
     height: 447px;
     box-shadow: none;
     background: transparent;
@@ -146,49 +147,3 @@
       .ol-popup-closer:after {
         content: "✖";
       }
-      .ol-mark {
-        
-        position: absolute;
-        background-color: red;
-        padding: 12px;
-        border-radius: 50%;
-        bottom: 6px;
-        left: -11px;
-        width: 20px;
-
-
-        /* position: absolute;
-        background-color: red;
-        box-shadow: 0 1px 4px rgba(0,0,0,0.2);
-        padding: 15px;
-        border-radius: 10px;
-        border: 1px solid red;
-        bottom: 12px;
-        left: -50px;
-        min-width: 280px; */
-      }
-      .ol-mark:after, .ol-mark:before {
-        top: 81%;
-        border: solid transparent;
-        content: " ";
-        height: 0;
-        width: 0;
-        position: absolute;
-        pointer-events: none;
-      }
-      .ol-mark:after {
-        border-top-color: red;
-        border-width: 10px;
-        left: 12px;
-        margin-left: -10px;
-      }
-      .ol-mark:before {
-        border-top-color: red;
-        border-width: 10px;
-        left: 12px;
-        margin-left: -10px;
-      }
-    #mapShow {
-    height: 400px;
-    width: 100%;
-  }
