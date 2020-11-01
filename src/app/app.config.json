@@ -9,5 +9,5 @@
   "purposesDropdown": ["Purpose 1", "Purpose 2", "Purpose 3", "Purpose 4", "Purpose 5"],
   "rankDropdown": ["Rank 1", "Rank 2", "Rank 3"],
   "singaporeCoordinates": [11558584.587592864, 149314.65873857454],
-  "mapZoom":8
+  "mapZoom":11
 }

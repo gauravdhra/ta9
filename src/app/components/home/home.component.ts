@@ -3,15 +3,16 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import { Observable } from "rxjs";
 import { first, startWith, map } from 'rxjs/operators';
-import { MatSnackBar,
-   MatSnackBarHorizontalPosition,
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition,
   MatSnackBarRef
- } from '@angular/material/snack-bar';
+} from '@angular/material/snack-bar';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {ThemePalette} from '@angular/material/core';
-import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ThemePalette } from '@angular/material/core';
+import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 
 import SignaturePad from 'signature_pad';
 
@@ -77,10 +78,10 @@ export class HomeComponent implements OnInit {
 
 
   constructor(public dialog: MatDialog,
-              private _snackBar: MatSnackBar,
-              private route: Router,
-              private formBuilder: FormBuilder,
-              private apiService: ApiService) { }
+    private _snackBar: MatSnackBar,
+    private route: Router,
+    private formBuilder: FormBuilder,
+    private apiService: ApiService) { }
 
   ngOnInit(): void {
     // const lookupsToFetch = [config.divisionLookupName, config.NPCLookupName, config.purposeLookupName, config.rankLookupName];
@@ -100,7 +101,7 @@ export class HomeComponent implements OnInit {
     this.buildForms();
     localStorage.getItem('authentication') === 'true' ? this.auth = true : this.auth = false;
     this.unauthorizedNavigation();
-   
+
   }
 
   addAddress(event: Event, index: any) {
@@ -112,25 +113,25 @@ export class HomeComponent implements OnInit {
     const schedules = this.shiftScheduleForm.get('schedules') as FormArray;
     schedules.controls[index].get('location')[isEditing ? 'enable' : 'disable']();
   }
-  openMapDialog(index: any){
+  openMapDialog(index: any) {
     const schedules = this.shiftScheduleForm.get('schedules') as FormArray;
 
     const dialogRef = this.dialog.open(DialogContentExampleDialog);
     dialogRef.afterClosed().subscribe(result => {
-      
+
       if (result != undefined && result.location != undefined && result.coordinates != undefined) {
         schedules.controls[index].get('location').setValue(result.location.toString());
         schedules.controls[index].get('coordinates').setValue(result.coordinates.toString());
       }
     });
   }
-  openSelectedMapLocation(index){
+  openSelectedMapLocation(index) {
     const schedules = this.shiftScheduleForm.get('schedules') as FormArray;
-    let data = { data: schedules.controls[index].get('coordinates').value}
+    let data = { data: schedules.controls[index].get('coordinates').value }
     // let data = {data:[11558584.587592864,149314.65873857454 ]}
     const dialogRef = this.dialog.open(DialogContentExampleDialog, data);
     dialogRef.afterClosed().subscribe(result => {
-      
+
       if (result != undefined && result.location != undefined && result.coordinates != undefined) {
         schedules.controls[index].get('location').setValue(result.location.toString());
         schedules.controls[index].get('coordinates').setValue(result.coordinates.toString());
@@ -149,7 +150,7 @@ export class HomeComponent implements OnInit {
       panelClass: ['mat-toolbar', 'mat-warn']
     });
   }
-  submitShift(){
+  submitShift() {
     this.isLoading = true;
     const signatureElement = document.getElementById('signatureCanvas');
     const canvas = document.querySelector('canvas');
@@ -171,19 +172,19 @@ export class HomeComponent implements OnInit {
     // this.apiService.insertBulk(jsonData, this.loginToken)
     //   .subscribe((res: any) => {
     //     if (res && res.code == 200) {
-          this.openSnackBar();
-          this.buildForms();
-          this.step = 1;
-      //   } else {
-      //     this.shiftCreationFail = true;
-      //     this.openErrorSnackBar(res);
-      //     this.isLoading = false;
-      //   }
-      // }, (msg: any) => {
-      //   this.shiftCreationFail = true;
-      //   this.isLoading = false;
-      //   this.openErrorSnackBar(msg);
-      // });
+    this.openSnackBar();
+    this.buildForms();
+    this.step = 1;
+    //   } else {
+    //     this.shiftCreationFail = true;
+    //     this.openErrorSnackBar(res);
+    //     this.isLoading = false;
+    //   }
+    // }, (msg: any) => {
+    //   this.shiftCreationFail = true;
+    //   this.isLoading = false;
+    //   this.openErrorSnackBar(msg);
+    // });
   }
   // navigate to login page if unauthorized access
   unauthorizedNavigation() {
@@ -191,7 +192,7 @@ export class HomeComponent implements OnInit {
   }
 
   onOptionSelected(index, optionIndex, purposes) {
-    if (optionIndex == purposes.length+1) {
+    if (optionIndex == purposes.length + 1) {
       this.option[index] = true
     }
     else {
@@ -202,7 +203,7 @@ export class HomeComponent implements OnInit {
     this.option = [];
     // FIRST STEP SHIFT INFO FORM
     this.shiftInfoForm = this.formBuilder.group({
-      division: [ null, [Validators.required]],
+      division: [null, [Validators.required]],
       npc: [null],
       teamName: ['', [Validators.required]],
       driverName: ['', [Validators.required]],
@@ -215,12 +216,20 @@ export class HomeComponent implements OnInit {
 
     this.filteredDivision = this.shiftInfoForm.get('division').valueChanges.pipe(
       startWith(''),
-      map(value =>  this._filterDivision(value))
+      map(value => {
+        if (this.divisions.indexOf(value) > -1 === false)
+          this.shiftInfoForm.get('division').setErrors({ 'incorrect': true });
+        return this._filterDivision(value)
+      })
     );
-    this.filteredNPC = this.shiftInfoForm.controls.npc.valueChanges.pipe(
+    this.filteredNPC = this.shiftInfoForm.get('npc').valueChanges.pipe(
       startWith(''),
-      map(value => this._filterNPC(value))
-    );
+      map(value => {
+        if (this.npc.indexOf(value) > -1 === false)
+          this.shiftInfoForm.get('npc').setErrors({ 'incorrect': true });
+        return this._filterNPC(value)
+      })
+    )
     this.onChangeShiftTime();
 
     // SECOND STEP SHIFT SCHEDULE INFO FORM
@@ -280,7 +289,7 @@ export class HomeComponent implements OnInit {
   openConfirmationDialog(index: number) {
     const confirmationDialog = this.dialog.open(ConfirmationDialog);
     confirmationDialog.afterClosed().subscribe(result => {
-      if (result != undefined  && result != false) {
+      if (result != undefined && result != false) {
         const control = this.shiftScheduleForm.controls.schedules as FormArray;
         control.removeAt(index);
         // schedules.controls[index].get('location').setValue(result.toString());
@@ -337,15 +346,15 @@ export class HomeComponent implements OnInit {
       }
     });
   }
-  openEditDialog(index,value){
+  openEditDialog(index, value) {
     const dialogRef = this.dialog.open(EditLocationDialog, {
       width: '500px',
-      data: {location: value, closed: false}
+      data: { location: value, closed: false }
     });
     // const dialogRef = this.dialog.open(EditLocationDialog);
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result && !result.closed){
+      if (result && !result.closed) {
         let schedules = this.shiftScheduleForm.get('schedules') as FormArray;
         schedules.controls[index].get('location').setValue(result.location);
         // schedules.controls[index].get('coordinates').setValue('');
@@ -380,7 +389,7 @@ export class EditLocationDialog {
 
   constructor(
     public dialogRef: MatDialogRef<EditLocationDialog>,
-    @Inject(MAT_DIALOG_DATA) public data) {}
+    @Inject(MAT_DIALOG_DATA) public data) { }
 
   onNoClick(): void {
     this.data.closed = true;

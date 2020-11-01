@@ -12,7 +12,7 @@
         <div class="col s12 m6 right-align">
 
           <button class="btn waves-effect waves-light button-next" type="submit" name="action" (click)="step=2"
-            [disabled]="shiftInfoForm.valid"><i class="material-icons right next-button">forward</i>Next</button>
+            [disabled]="!shiftInfoForm.valid"><i class="material-icons right next-button">forward</i>Next</button>
         </div>
       </div>
       <div class="header">
@@ -95,7 +95,7 @@
           <div class="row">
             <div class="form-group col-md-4 pr-1 shiftdate">
               <label class="label-class required ownHeading">Date</label>
-              <input type="text" placeholder="Choose Date" formControlName="shiftDate" matInput [matDatepicker]="picker" class="form-control" required>
+              <input type="text" [readonly]="true" placeholder="Choose Date" (click)="picker.open()"formControlName="shiftDate" matInput [matDatepicker]="picker" class="form-control" required>
               <mat-datepicker #picker></mat-datepicker>
               <button mat-raised-button class="shiftDateButton" (click)="picker.open()">Choose Date</button>
             </div>
