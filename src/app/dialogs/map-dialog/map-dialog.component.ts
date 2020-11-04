@@ -68,8 +68,17 @@ export class DialogContentExampleDialog implements AfterViewInit{
   // @Output() coordinates = new EventEmitter<[any]>();
   constructor( @Inject(MAT_DIALOG_DATA) public data: any) { 
 
-    if(data)
-    this.coordinates = data.split(',')
+    if(data){
+      let pointsArray = data.coordinates.split(',')
+      this.locationDetail['coordinates'] = [pointsArray[0], pointsArray[1]]
+      this.locationDetail['location'] = data.placeName
+      
+      let placePoints = fromLonLat(pointsArray).map(function (val) {
+        return val.toFixed(6);
+      });
+      this.coordinates = placePoints
+
+    }
     
   }
 
@@ -168,9 +177,10 @@ export class DialogContentExampleDialog implements AfterViewInit{
       let placeCoordinate = toLonLat(evt.coordinate).map(function(val) {
         return val.toFixed(6);
       });
+      
       var lon = coordinate[0];
       var lat = coordinate[1];
-      this.locationDetail['coordinates'] = [lon, lat]
+      this.locationDetail['coordinates'] = [placeCoordinate[0], placeCoordinate[1]]
       this.getPlaceName(placeCoordinate[0], placeCoordinate[1]);
     });
     

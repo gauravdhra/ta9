@@ -118,8 +118,11 @@ export class HomeComponent implements OnInit {
 
     const dialogRef = this.dialog.open(DialogContentExampleDialog);
     dialogRef.afterClosed().subscribe(result => {
-
-      if (result != undefined && result.location != undefined && result.coordinates != undefined) {
+      if (result == undefined){
+        schedules.controls[index].get('location').setValue('');
+        schedules.controls[index].get('coordinates').setValue('');
+      }
+      else if (result != undefined && result.location != undefined && result.coordinates != undefined) {
         schedules.controls[index].get('location').setValue(result.location.toString());
         schedules.controls[index].get('coordinates').setValue(result.coordinates.toString());
       }
@@ -127,12 +130,20 @@ export class HomeComponent implements OnInit {
   }
   openSelectedMapLocation(index) {
     const schedules = this.shiftScheduleForm.get('schedules') as FormArray;
-    let data = { data: schedules.controls[index].get('coordinates').value }
+    let data = {
+      data:{
+        coordinates:schedules.controls[index].get('coordinates').value,
+        placeName: schedules.controls[index].get('location').value
+      } 
+      }
     // let data = {data:[11558584.587592864,149314.65873857454 ]}
     const dialogRef = this.dialog.open(DialogContentExampleDialog, data);
     dialogRef.afterClosed().subscribe(result => {
-
-      if (result != undefined && result.location != undefined && result.coordinates != undefined) {
+      if (result == undefined) {
+        schedules.controls[index].get('location').setValue('');
+        schedules.controls[index].get('coordinates').setValue('');
+      }
+      else if (result != undefined && result.location != undefined && result.coordinates != undefined) {
         schedules.controls[index].get('location').setValue(result.location.toString());
         schedules.controls[index].get('coordinates').setValue(result.coordinates.toString());
       }
@@ -213,7 +224,7 @@ export class HomeComponent implements OnInit {
     // FIRST STEP SHIFT INFO FORM
     this.shiftInfoForm = this.formBuilder.group({
       division: [null, [Validators.required]],
-      npc: [null],
+      npc: [null, [Validators.required]],
       teamName: ['', [Validators.required]],
       driverName: ['', [Validators.required]],
       patrolMan: ['', [Validators.required]],
@@ -235,10 +246,11 @@ export class HomeComponent implements OnInit {
       })
     );
     this.filteredNPC = this.shiftInfoForm.get('npc').valueChanges.pipe(
-      startWith(''),
       map(value => {
-        if (this.npc.indexOf(value) > -1 === false)
+        if (this.npc.indexOf(value) > -1 === false){
           this.shiftInfoForm.get('npc').setErrors({ 'incorrect': true });
+          this.openCustomSnackBar("Please choose a Sub Division from the list", 'Close', 'red-snackbar');
+        }
         return this._filterNPC(value)
       })
     )
