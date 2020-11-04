@@ -138,6 +138,15 @@ export class HomeComponent implements OnInit {
       }
     });
   }
+  openCustomSnackBar(message: string, action: string, className: string) {
+
+    this._snackBar.open(message, action, {
+      duration: 2000,
+      verticalPosition: 'bottom',
+      horizontalPosition: 'center',
+      panelClass: [className],
+    });
+  }
   openSnackBar() {
     this._snackBar.openFromComponent(PizzaPartyComponent, {
       duration: 5 * 1000,
@@ -215,10 +224,13 @@ export class HomeComponent implements OnInit {
     });
 
     this.filteredDivision = this.shiftInfoForm.get('division').valueChanges.pipe(
-      startWith(''),
+      // startWith(''),
       map(value => {
-        if (this.divisions.indexOf(value) > -1 === false)
+        if (this.divisions.indexOf(value) > -1 === false){
           this.shiftInfoForm.get('division').setErrors({ 'incorrect': true });
+          this.openCustomSnackBar("Please choose a division from the list", 'Close', 'red-snackbar');
+
+        }
         return this._filterDivision(value)
       })
     );

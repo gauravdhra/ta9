@@ -25,10 +25,10 @@
           <div class="col-md-9">
             <div class="row">
               <div class="form-group col-md-4 pr-1">
+              
                 <label class="label-class required ownHeading">Shift’s Sector</label>
-                <input type="text" formControlName="division"  class="form-control" placeholder="Division" [matAutocomplete]="auto"
+                <input type="text" formControlName="division" [ngClass]="{'redBorder':(shiftInfoForm.controls.division.touched && !shiftInfoForm.controls.division.valid)}"  class="form-control" placeholder="Division" [matAutocomplete]="auto"
                   required>
-
                 <mat-autocomplete #auto="matAutocomplete">
                   <mat-option *ngFor="let div of filteredDivision | async; let i= index" [value]="div">
                     {{div}}
@@ -37,7 +37,7 @@
               </div>
               <div class="form-group col-md-4 pr-1">
                 <label style="visibility: hidden;" class="label-class required ownHeading"></label>
-                <input type="text" formControlName="npc" class="form-control" placeholder="NPC" [matAutocomplete]="npc"
+                <input type="text" formControlName="npc"  class="form-control" placeholder="NPC" [matAutocomplete]="npc"
                   required>
                 <mat-autocomplete #npc="matAutocomplete">
                   <mat-option *ngFor="let npc of filteredNPC | async; let i= index" [value]="npc">
@@ -49,29 +49,29 @@
             <div class="row">
               <div class="form-group col-md-4 pr-1">
                 <label class="label-class required ownHeading">Team Name</label>
-                <input type="text" formControlName="teamName" name="Name" class="form-control" placeholder="Team Name"
+                <input type="text" [ngClass]="{'redBorder':(shiftInfoForm.controls.teamName.touched && !shiftInfoForm.controls.teamName.valid)}" formControlName="teamName" name="Name" class="form-control" placeholder="Team Name"
                   autocomplete="on" required>
 
               </div>
               <div class="form-group col-md-4 pr-1">
                 <label class="label-class required ownHeading">Driver Name</label>
-                <input type="text" formControlName="driverName" name="Name" class="form-control"
+                <input type="text" [ngClass]="{'redBorder':(shiftInfoForm.controls.driverName.touched && !shiftInfoForm.controls.driverName.valid)}" formControlName="driverName" name="Name" class="form-control"
                   placeholder="Driver Name" autocomplete="on" required>
               </div>
               <div class="form-group col-md-4 pr-1">
                 <label class="label-class required ownHeading">Patrolman</label>
-                <input type="text" formControlName="patrolMan" name="Name" class="form-control" placeholder="Petrolman"
+                <input type="text" [ngClass]="{'redBorder':(shiftInfoForm.controls.patrolMan.touched && !shiftInfoForm.controls.patrolMan.valid)}" formControlName="patrolMan" name="Name" class="form-control" placeholder="Petrolman"
                   autocomplete="on" required>
               </div>
             </div>
             <div class="row">
               <div class="form-group col-md-4 pr-1">
                 <label class="label-class required ownHeading">Sector</label>
-                <input type="text" formControlName="sector" name="Name" class="form-control" placeholder="sector" required>
+                <input type="text" [ngClass]="{'redBorder':(shiftInfoForm.controls.sector.touched && !shiftInfoForm.controls.sector.valid)}" formControlName="sector" name="Name" class="form-control" placeholder="sector" required>
               </div>
               <div class="form-group col-md-4 pr-1">
                 <label class="label-class required ownHeading">Call sign</label>
-                <input type="text" formControlName="callSign" name="Name" class="form-control" placeholder="call sign" required>
+                <input type="text" [ngClass]="{'redBorder':(shiftInfoForm.controls.callSign.touched && !shiftInfoForm.controls.callSign.valid)}" formControlName="callSign" name="Name" class="form-control" placeholder="call sign" required>
               </div>
             </div>
             <div class="row">
@@ -80,12 +80,12 @@
                 <label class="label-class required ownHeading col s12 m12 set-margin">Shift time</label>
                 <div class="form-group">
                   <label>
-                    <input name="shiftTime" formControlName="shiftTime" type="radio" class="form-control" value="day"
+                    <input name="shiftTime" [ngClass]="{'redBorder':(shiftInfoForm.controls.shiftTime.touched && !shiftInfoForm.controls.shiftTime.valid)}" formControlName="shiftTime" type="radio" class="form-control" value="day"
                       class="with-gap" checked />
                     <span>Day Shift</span>
                   </label>
                   <label class="pl-3">
-                    <input name="shiftTime" formControlName="shiftTime" type="radio" class="form-control" value="night"
+                    <input name="shiftTime" [ngClass]="{'redBorder':(shiftInfoForm.controls.shiftTime.touched && !shiftInfoForm.controls.shiftTime.valid)}" formControlName="shiftTime" type="radio" class="form-control" value="night"
                       class="with-gap" />
                     <span>Night Shift</span>
                   </label>
@@ -95,7 +95,7 @@
           <div class="row">
             <div class="form-group col-md-4 pr-1 shiftdate">
               <label class="label-class required ownHeading">Date</label>
-              <input type="text" [readonly]="true" placeholder="Choose Date" (click)="picker.open()"formControlName="shiftDate" matInput [matDatepicker]="picker" class="form-control" required>
+              <input type="text" [readonly]="true" placeholder="Choose Date" (click)="picker.open()"[ngClass]="{'redBorder':(shiftInfoForm.controls.shiftDate.touched && !shiftInfoForm.controls.shiftDate.valid)}" formControlName="shiftDate" matInput [matDatepicker]="picker" class="form-control" required>
               <mat-datepicker #picker></mat-datepicker>
               <button mat-raised-button class="shiftDateButton" (click)="picker.open()">Choose Date</button>
             </div>
